@@ -13,19 +13,25 @@ For real time information, following Links will connect to WHO DAshboards which 
 **Triple Billion data**	
 Triple Billion Progress, WHO Global progress dashboard
 
-2. **Healthy Life Expectancy (World)**
+2. **Global Health Observatory (GHO) Data**:
+   The Global Health Observatory to explore a world of health data
+
+Indicators Countries 
+https://www.who.int/data/gho
+
+4. **Healthy Life Expectancy (World)**
 Years lived in "full health", 2021
 https://data.who.int/indicators/i/48D9B0C/C64284D
 
-3. **Global Digital Health Monitor** 2023
+5. **Global Digital Health Monitor** 2023
    https://data.who.int/dashboards/gdhm
 
-4. For Child mortality
+6. For Child mortality
 **Under-five mortality rate (per 1000 live births)**
 Official estimate updated 15 May 2024
 https://data.who.int/indicators/i/E3CAF2B/2322814
 
-5. **Global Health Estimates**
+7. **Global Health Estimates**
  WHO’s Global Health Estimates (GHE) provide the latest available data on death and disability globally, by region and country, and by age, sex and cause. The latest updates include global, regional and country trends from 2000 to 2021 inclusive. By providing key insights on mortality and morbidity trends, these estimates are a powerful tool to support informed decision-making on health policy and resource allocation. These estimates can be used to assess the direct and indirect impact of the COVID-19 pandemic on mortality and morbidity.
 
  6.**Global Inequality Monitor**
