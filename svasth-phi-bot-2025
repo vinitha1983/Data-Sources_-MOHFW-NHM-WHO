@@ -14,6 +14,52 @@ Data Sources:
 
 
 Detailed Phase wise description of creating the Model :
+Step 1: Integrating the Model in Open Web UI
+
+##1  Set Up GitHub Repository:
+1.1  Create a new repository on GitHub.
+
+1.2  Clone the repository to your local machine.
+## CopyReplit
+https://github.com/vinithaFPM23005/Data-Sources_-MOHFW-NHM-WHO.git
+
+2. Integrating the Svasth PHI Bot model with the backend of  web application.
+   setting up an API route that the UI can call to get responses from the chatbot.
+
+3.Connect the Bot:
+To import from Flask
+from flask import Flask, request, jsonify
+from your_svasth_bot import SvasthBot  # Assume you have a class for the bot
+
+app = Flask(__name__)
+bot = SvasthBot()
+
+@app.route('/ask', methods=['POST'])
+def ask_bot():
+    user_input = request.json.get('question')
+    response = bot.get_response(user_input)
+    return jsonify({'response': response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+4.Push Changes to GitHub: 
+git add .
+git commit -m "Initial setup of Svasth PHI Bot web UI"
+git push origin main
+
+Step 2: Integrating Public Health Websites
+To enhance the capabilities of PHI bot,We integrate various public health websites for real-time information. 
+
+
+
+
+
+
+
+
+
+
 ## 1.Phase 1: Model Setup and Ollama Integration
 Step 1: Prepare Your Model for Ollama
 
