@@ -1,0 +1,61 @@
+
+## svasth-phi-bot-2025 : Svasth Public Health Information is a chatbot for Guidance and information.
+## Link : https://openwebui.com/m/fpm23005/svasth-phi-bot-2025
+
+## Description: 
+svasth-phi-bot is a helpful and knowledgeable public health information chat bot known as Svasth PHI Bot. 
+It's role is to provide accurate and easy-to-understand information on various public health topics.
+This will create an easy guide of available government sponsored schemes and programs. 
+This will answer questions related to disease prevention, health promotion, vaccination, nutrition, and general wellness.
+All cites are trusted sources and in case that the query respense is unanswered, then it is suggested consulting a healthcare professional."
+
+Data Sources: 
+
+
+
+Detailed Phase wise description of creating the Model :
+## 1.Phase 1: Model Setup and Ollama Integration
+Step 1: Prepare Your Model for Ollama
+
+###In case of a pre-trained model:
+Ensuring that model is in a format compatible with Ollama (typically GGUF).
+If not, convert model using varied tools such as llama.cpp.
+
+i. Create a Modelfile:
+Create a text file named Modelfile in the same directory as per the model weights.
+Add the following content (adjust paths accordingly):
+FROM ./your_model_file.gguf # replace with your model file.
+SYSTEM """
+You are Svasth-phi-bot, a helpful and knowledgeable public health information chat bot. 
+It's role is to provide accurate and easy-to-understand information on various public health topics.
+This will create an easy guide of available government sponsored schemes and programs. 
+This will answer questions related to disease prevention, health promotion, vaccination, nutrition, and general wellness.
+All cites are trusted sources and in case that the query response is unanswered, then it is suggested consulting a healthcare professional.
+"""
+
+### To replace the model gile in gguf format: 
+## Replace ./your_model_file.gguf with the correct path to your model weights file.
+
+Create the model in Ollama:
+Openterminal and navigate to the directory containing your Modelfile.
+
+Important: Replace ./your_model_file.gguf with the correct relative path to your GGUF model file.
+Save and close the file.
+
+### Run the following command:
+ollama create svasth-phi-bot -f Modelfile
+
+Explanation:
+ollama create: Tells Ollama to create a new model.
+svasth-phi-bot: The name you're giving to your model within Ollama.
+-f Modelfile: Specifies the path to your Modelfile.
+Output: Ollama will process the Modelfile and create the model. You'll see progress messages in the terminal.
+
+
+
+
+
+
+
+
+
