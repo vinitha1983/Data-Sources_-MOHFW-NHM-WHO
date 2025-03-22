@@ -13,44 +13,6 @@ Data Sources:
 
 
 
-Detailed Phase wise description of creating the Model :
-Step 1: Integrating the Model in Open Web UI
-
-##1  Set Up GitHub Repository:
-1.1  Create a new repository on GitHub.
-
-1.2  Clone the repository to your local machine.
-## CopyReplit
-https://github.com/vinithaFPM23005/Data-Sources_-MOHFW-NHM-WHO.git
-
-2. Integrating the Svasth PHI Bot model with the backend of  web application.
-   setting up an API route that the UI can call to get responses from the chatbot.
-
-3.Connect the Bot:
-To import from Flask
-from flask import Flask, request, jsonify
-from your_svasth_bot import SvasthBot  # Assume you have a class for the bot
-
-app = Flask(__name__)
-bot = SvasthBot()
-
-@app.route('/ask', methods=['POST'])
-def ask_bot():
-    user_input = request.json.get('question')
-    response = bot.get_response(user_input)
-    return jsonify({'response': response})
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-4.Push Changes to GitHub: 
-git add .
-git commit -m "Initial setup of Svasth PHI Bot web UI"
-git push origin main
-
-Step 2: Integrating Public Health Websites
-To enhance the capabilities of PHI bot,We integrate various public health websites for real-time information. 
-
 
 
 
@@ -96,6 +58,81 @@ ollama create: Tells Ollama to create a new model.
 svasth-phi-bot: The name you're giving to your model within Ollama.
 -f Modelfile: Specifies the path to your Modelfile.
 Output: Ollama will process the Modelfile and create the model. You'll see progress messages in the terminal.
+
+
+Detailed Phase wise description of creating the Model :
+Step 1: Integrating the Model in Open Web UI
+
+##1  Set Up GitHub Repository:
+1.1  Create a new repository on GitHub.
+
+1.2  Clone the repository to your local machine.
+## CopyReplit
+https://github.com/vinithaFPM23005/Data-Sources_-MOHFW-NHM-WHO.git
+
+2. Integrating the Svasth PHI Bot model with the backend of  web application.
+   setting up an API route that the UI can call to get responses from the chatbot.
+
+3.Connect the Bot:
+To import from Flask
+from flask import Flask, request, jsonify
+from your_svasth_bot import SvasthBot  # Assume you have a class for the bot
+
+app = Flask(__name__)
+bot = SvasthBot()
+
+@app.route('/ask', methods=['POST'])
+def ask_bot():
+    user_input = request.json.get('question')
+    response = bot.get_response(user_input)
+    return jsonify({'response': response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+4.Push Changes to GitHub: 
+git add .
+git commit -m "Initial setup of Svasth PHI Bot web UI"
+git push origin main
+
+Step 2: Integrating Public Health Websites
+## To enhance the capabilities of PHI bot,We integrate various public health websites for real-time information. 
+
+2.1  Choose APIs from Trusted Sources:
+    1. Identify available public health APIs (e.g., WHO, MOHFW, NHM etc. ).
+    2. Read the API documentation for instructions on how to use them (endpoints, required parameters, and response formats).
+    3.Creating a Unified Service: Once all the API details, create functions in the bot that can call these APIs based on user queries.
+      Example API call using Python:
+     ## import requests
+     def get_health_info(query):
+    response = requests.get(f'https://api.example.com/search?q={query}')
+    return response.json()  # parse the response as needed
+
+2.2 Modify Bot Logic:
+    Incorporate conditionals in PHI bot to check which API to call based on the user query.
+
+ ## Step 3: Convert to GGUF Format
+    To convert your chatbot model to a GGUF (Generalized Global Unified Format) format, we need the following steps:
+
+2.3  Exporting the Model: If the model is built using a framework like TensorFlow or PyTorch, use the appropriate functions to export your model to a format that you can convert to GGUF, if GGUF supports it.
+
+2.3.1 Convert to GGUF: Using  library or tool that supports the conversion to GGUF, if available. Refer to the official GGUF documentation to know the exact conversion functions.
+
+##  Step 4: Run Your Model Using Prompts in Terminal
+    To run your model using commands in a terminal:
+   # Assuming you have a script to run your model
+     python run_model.py --prompt "What are the preventive measures for diabetes?"
+
+ ### To Run the Web Server:
+     python app.py  # This should start the web server
+
+###  To Test the Chatbot:
+     curl -X POST http://localhost:5000/ask -H 'Content-Type: application/json' -d '{"question": "What are the vaccination schedules?"}'
+
+
+
+
+
 
 
 
